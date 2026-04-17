@@ -73,6 +73,12 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 /* ── CUSTOMER REPORT ── */
 #reportPage{display:none;max-width:780px;margin:0 auto;padding:40px 24px 80px;}
 #reportPage.on{display:block;}
+.hero-img{position:relative;width:100%;height:260px;border-radius:16px;overflow:hidden;background:#111;margin-bottom:28px;}
+.hero-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.82) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:22px 26px;}
+.hero-badge{position:absolute;top:14px;right:14px;background:var(--gold);color:#fff;font-size:10px;font-weight:700;padding:5px 13px;border-radius:100px;letter-spacing:.05em;}
+.hero-dealer{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,34px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:4px;}
+.hero-tag{font-size:13px;color:rgba(255,255,255,.7);}
 .rpt-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:12px;}
 .rpt-h1{font-family:'Playfair Display',serif;font-size:clamp(28px,4.5vw,46px);font-weight:900;line-height:1.15;margin-bottom:12px;}
 .rpt-h1 .acc{color:var(--gold);}
@@ -206,6 +212,10 @@ input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer;}
       <label class="fl">City &amp; State</label>
       <input type="text" id="f-city" placeholder="e.g. Indianapolis, IN" />
     </div>
+    <div class="fg">
+      <label class="fl">Their inventory image URL <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:11px;color:#bbb;">from Spyne Studio — their car appears at the top</span></label>
+      <input type="url" id="f-image" placeholder="https://cdn.spyne.ai/..." />
+    </div>
     <div class="fg last">
       <label class="fl">Your booking link</label>
       <input type="url" id="f-booking" placeholder="https://calendly.com/archit-gupta-spyne/30min" />
@@ -235,6 +245,7 @@ input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer;}
 <!-- ── CUSTOMER REPORT ── -->
 <div id="reportPage">
   <div class="rpt-eyebrow">Spyne AI · VINI After-Hours Intelligence Report</div>
+  <div id="heroBlock"></div>
   <div class="rpt-h1" id="rptH1"></div>
   <p class="rpt-sub" id="rptSub"></p>
   <div class="ec-box" id="ecBox"></div>
@@ -329,6 +340,7 @@ window.addEventListener('load', () => {
       contact: decodeURIComponent(p.get('contact')|| ''),
       city:    decodeURIComponent(p.get('city')   || ''),
       booking: decodeURIComponent(p.get('booking')|| 'https://calendly.com/archit-gupta-spyne/30min'),
+      image:   decodeURIComponent(p.get('image')  || ''),
       comps:   JSON.parse(decodeURIComponent(p.get('comps') || '[]'))
     };
     reportData = data;
@@ -339,22 +351,28 @@ window.addEventListener('load', () => {
 
 // ── GOOGLE PLACES ────────────────────────────────────────────────────────────
 async function searchNearbyDealers(city, brand, apiKey) {
-  const query = encodeURIComponent(brand + ' dealership near ' + city);
-  const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&type=car_dealer&key=${apiKey}`;
-  const proxy = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+  const query = brand + ' dealership near ' + city;
+  // Use a CORS proxy to call Google Places Text Search
+  const endpoint = 'https://maps.googleapis.com/maps/api/place/textsearch/json'
+    + '?query=' + encodeURIComponent(query)
+    + '&type=car_dealer'
+    + '&key=' + apiKey;
+  const proxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent(endpoint);
   try {
-    const res = await fetch(proxy);
-    const data = await res.json();
-    const parsed = JSON.parse(data.contents);
-    if (parsed.results && parsed.results.length > 0) {
-      return parsed.results.slice(0, 5).map((p, i) => ({
+    const res = await fetch(proxy, {cache:'no-store'});
+    if (!res.ok) throw new Error('Proxy failed');
+    const wrapper = await res.json();
+    const data = JSON.parse(wrapper.contents);
+    if (data.status === 'OK' && data.results && data.results.length > 0) {
+      return data.results.slice(0, 6).map((p, i) => ({
         name: p.name,
-        address: (p.formatted_address || '').split(',').slice(0,2).join(','),
+        address: (p.formatted_address || '').split(',').slice(0, 2).join(',').trim(),
         rating: p.rating || null,
         threat: i < 2 ? 'threat' : 'watch'
       }));
     }
-  } catch(e) { console.log('Places error:', e); }
+    console.log('Places API status:', data.status, data.error_message || '');
+  } catch(e) { console.log('Places search error:', e); }
   return [];
 }
 
@@ -368,6 +386,7 @@ async function generate() {
   const contact = document.getElementById('f-contact').value.trim();
   const role    = document.getElementById('f-role').value.trim() || 'GM';
   const city    = document.getElementById('f-city').value.trim();
+  const image   = document.getElementById('f-image').value.trim();
   const booking = document.getElementById('f-booking').value.trim() || 'https://calendly.com/archit-gupta-spyne/30min';
   const apiKey  = document.getElementById('f-apikey').value.trim();
 
@@ -390,7 +409,7 @@ async function generate() {
   const filtered = comps.filter(c => !c.name.toLowerCase().includes(dealer.toLowerCase().split(' ')[0]));
   const finalComps = filtered.slice(0, 3);
 
-  reportData = { dealer, brand, contact, role, city, booking, comps: finalComps };
+  reportData = { dealer, brand, contact, role, city, booking, image, comps: finalComps };
 
   // Build shareable URL — no API key in it
   const params = new URLSearchParams({
@@ -400,6 +419,7 @@ async function generate() {
     contact: encodeURIComponent(contact),
     city: encodeURIComponent(city),
     booking: encodeURIComponent(booking),
+    image: encodeURIComponent(image),
     comps: encodeURIComponent(JSON.stringify(finalComps))
   });
   const shareURL = BASE + '?' + params.toString();
@@ -439,8 +459,23 @@ function previewReport() {
 
 // ── RENDER REPORT ────────────────────────────────────────────────────────────
 function renderReport(data) {
-  const { dealer, brand, contact, city, booking, comps } = data;
+  const { dealer, brand, contact, city, booking, image, comps } = data;
   const threatNames = (comps || []).filter(c=>c.threat==='threat').map(c=>c.name);
+
+  // Hero image
+  const heroBlock = document.getElementById('heroBlock');
+  if (image) {
+    heroBlock.innerHTML = `<div class="hero-img">
+      <img src="${image}" alt="${dealer} inventory" onerror="this.parentElement.style.background='#1a2535';this.style.display='none';" />
+      <div class="hero-overlay">
+        <div class="hero-badge">Spyne AI</div>
+        <div class="hero-dealer">${dealer}</div>
+        <div class="hero-tag">${city} · Your inventory, powered by Spyne</div>
+      </div>
+    </div>`;
+  } else {
+    heroBlock.innerHTML = '';
+  }
 
   document.getElementById('rptH1').innerHTML = dealer + ' is losing <span class="acc" id="hRev">$14,000</span> every month after the lights go off.';
   document.getElementById('rptSub').textContent = 'This report estimates the revenue impact of unanswered after-hours calls at ' + dealer + ' in ' + city + '. Based on NADA and Invoca industry benchmarks. Move the sliders to match your real call volume.';
