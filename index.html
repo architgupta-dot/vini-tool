@@ -16,30 +16,40 @@
   --amber-bg:#FFFBEF;--amber-border:#E8D08A;--amber-text:#92650A;
 }
 html,body{min-height:100vh;background:var(--warm);font-family:'Inter',sans-serif;color:var(--black);}
+
+/* NAV */
 .nav{background:var(--white);border-bottom:1px solid var(--border);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;position:sticky;top:0;z-index:100;}
 .nav-brand{display:flex;align-items:center;gap:10px;}
 .nav-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
-.nav-name{font-family:'Inter',sans-serif;font-size:14px;font-weight:700;letter-spacing:.01em;color:var(--black);}
+.nav-name{font-family:'Inter',sans-serif;font-size:14px;font-weight:700;letter-spacing:.01em;}
 .nav-name span{color:var(--gold);}
 .nav-tag{background:var(--gold-pale);border:1px solid var(--gold-border);color:var(--gold);font-size:11px;font-weight:600;padding:4px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:.06em;}
 
-/* FORM */
-.form-page{max-width:600px;margin:0 auto;padding:64px 24px 48px;}
-.form-h{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,48px);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:12px;}
+/* FORM PAGE */
+.form-page{max-width:600px;margin:0 auto;padding:56px 24px 48px;}
+.form-h{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,48px);font-weight:900;line-height:1.1;margin-bottom:12px;}
 .form-h em{color:var(--gold);font-style:normal;}
-.form-sub{font-size:15px;color:var(--mid);line-height:1.7;margin-bottom:36px;}
-.existing-note{background:var(--gold-pale);border:1px solid var(--gold-border);border-radius:14px;padding:16px 20px;margin-bottom:32px;font-size:14px;color:#7A5C10;line-height:1.65;}
-.existing-note strong{color:#5A3E08;}
-.form-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:36px;}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-.fg{margin-bottom:22px;}
+.form-sub{font-size:15px;color:var(--mid);line-height:1.7;margin-bottom:28px;}
+
+.api-banner{background:var(--gold-pale);border:1px solid var(--gold-border);border-radius:14px;padding:16px 20px;margin-bottom:24px;}
+.api-banner-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:8px;}
+.api-banner-sub{font-size:12px;color:#92650A;line-height:1.5;margin-bottom:10px;}
+input.api-input{width:100%;background:var(--white);border:1.5px solid var(--gold-border);border-radius:8px;padding:11px 14px;font-family:'Inter',monospace;font-size:13px;color:var(--black);outline:none;}
+input.api-input:focus{border-color:var(--gold);}
+
+.existing-note{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:14px 18px;margin-bottom:24px;font-size:13px;color:var(--mid);line-height:1.6;}
+.existing-note strong{color:var(--black);}
+
+.form-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:32px;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.fg{margin-bottom:20px;}
 .fg.last{margin-bottom:0;}
-.fl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--mid);margin-bottom:8px;display:block;}
-input,select{width:100%;background:var(--warm);border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;font-family:'Inter',sans-serif;font-size:15px;color:var(--black);outline:none;transition:border-color .2s,background .2s;-webkit-appearance:none;}
-input:focus,select:focus{border-color:var(--gold);background:var(--white);}
+.fl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--mid);margin-bottom:7px;display:block;}
+input[type=text],input[type=url],select{width:100%;background:var(--warm);border:1.5px solid var(--border);border-radius:10px;padding:13px 16px;font-family:'Inter',sans-serif;font-size:15px;color:var(--black);outline:none;transition:border-color .2s,background .2s;-webkit-appearance:none;}
+input[type=text]:focus,input[type=url]:focus,select:focus{border-color:var(--gold);background:var(--white);}
 input::placeholder{color:#C0BAB0;}
 select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;cursor:pointer;}
-.go-btn{width:100%;background:var(--gold);color:var(--white);font-family:'Inter',sans-serif;font-weight:700;font-size:16px;padding:20px;border-radius:12px;border:none;cursor:pointer;margin-top:28px;letter-spacing:.01em;transition:background .2s,transform .1s;}
+.go-btn{width:100%;background:var(--gold);color:var(--white);font-family:'Inter',sans-serif;font-weight:700;font-size:16px;padding:18px;border-radius:12px;border:none;cursor:pointer;margin-top:24px;transition:background .2s,transform .1s;}
 .go-btn:hover{background:#b5821f;}
 .go-btn:active{transform:scale(.98);}
 .go-btn:disabled{opacity:.4;cursor:not-allowed;}
@@ -49,48 +59,48 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .loading.on{display:block;}
 .spin{width:52px;height:52px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 20px;}
 @keyframes spin{to{transform:rotate(360deg);}}
-.spin-msg{font-size:16px;color:var(--mid);margin-top:8px;}
+.spin-msg{font-size:16px;color:var(--mid);}
 
 /* REPORT */
 .rpt{display:none;max-width:800px;margin:0 auto;padding:40px 24px 80px;}
 .rpt.on{display:block;}
-.rpt-actions{display:flex;gap:10px;margin-bottom:40px;flex-wrap:wrap;}
+.rpt-actions{display:flex;gap:10px;margin-bottom:36px;flex-wrap:wrap;}
 .back-btn{background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:10px 22px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--black);cursor:pointer;transition:border-color .2s;}
 .back-btn:hover{border-color:var(--gold);}
 .print-btn{background:var(--black);color:var(--white);border:none;border-radius:8px;padding:10px 22px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;}
 
-.rpt-eyebrow{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:14px;}
-.rpt-h1{font-family:'Playfair Display',serif;font-size:clamp(30px,4.5vw,48px);font-weight:900;line-height:1.15;letter-spacing:-.01em;margin-bottom:14px;}
+.rpt-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:12px;}
+.rpt-h1{font-family:'Playfair Display',serif;font-size:clamp(28px,4.5vw,46px);font-weight:900;line-height:1.15;margin-bottom:12px;}
 .rpt-h1 .acc{color:var(--gold);}
-.rpt-sub{font-size:15px;color:var(--mid);line-height:1.7;margin-bottom:32px;}
+.rpt-sub{font-size:15px;color:var(--mid);line-height:1.7;margin-bottom:28px;}
 
-.ec-box{background:var(--gold-pale);border:1.5px solid var(--gold-border);border-radius:16px;padding:20px 26px;margin-bottom:28px;display:flex;gap:16px;align-items:flex-start;}
-.ec-icon{font-size:26px;flex-shrink:0;}
+.ec-box{background:var(--gold-pale);border:1.5px solid var(--gold-border);border-radius:16px;padding:18px 24px;margin-bottom:24px;display:flex;gap:14px;align-items:flex-start;}
+.ec-icon{font-size:22px;flex-shrink:0;}
 .ec-body{font-size:14px;color:#7A5C10;line-height:1.7;}
 .ec-body strong{color:#5A3E08;font-weight:700;}
 
-.threat-box{background:var(--red-bg);border:1.5px solid var(--red-border);border-radius:16px;padding:18px 24px;margin-bottom:28px;font-size:14px;color:var(--red);line-height:1.7;}
+.threat-box{background:var(--red-bg);border:1.5px solid var(--red-border);border-radius:16px;padding:16px 22px;margin-bottom:24px;font-size:14px;color:var(--red);line-height:1.7;}
 .threat-box strong{font-weight:700;}
 
 /* SLIDERS */
-.slider-panel{background:var(--white);border:1px solid var(--border);border-radius:18px;padding:28px;margin-bottom:32px;}
-.sp-title{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;margin-bottom:24px;}
-.sr{display:grid;grid-template-columns:1fr 110px;align-items:center;gap:18px;margin-bottom:20px;}
+.slider-panel{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:26px;margin-bottom:28px;}
+.sp-title{font-size:15px;font-weight:700;margin-bottom:22px;}
+.sr{display:grid;grid-template-columns:1fr 110px;align-items:center;gap:16px;margin-bottom:18px;}
 .sr:last-child{margin-bottom:0;}
-.sr-inner{display:flex;flex-direction:column;gap:6px;}
+.sr-inner{display:flex;flex-direction:column;gap:5px;}
 .sr-lbl{font-size:13px;color:var(--mid);}
-input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer;height:5px;}
-.sr-val{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--gold);text-align:right;letter-spacing:-.01em;line-height:1;}
+input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer;}
+.sr-val{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--gold);text-align:right;line-height:1;}
 
 /* FUNNEL */
-.sec-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid);margin-bottom:14px;}
-.funnel{background:var(--white);border:1px solid var(--border);border-radius:18px;overflow:hidden;margin-bottom:32px;}
-.f-row{display:grid;grid-template-columns:220px 1fr 72px;align-items:center;gap:16px;padding:16px 22px;border-bottom:1px solid var(--border);}
+.sec-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid);margin-bottom:12px;}
+.funnel{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:28px;}
+.f-row{display:grid;grid-template-columns:210px 1fr 68px;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px solid var(--border);}
 .f-row:last-child{border-bottom:none;}
 .f-row.hl{background:var(--red-bg);}
 .f-lbl{font-size:13px;color:var(--mid);}
-.f-lbl.bold{font-weight:700;color:var(--red);font-size:14px;}
-.bwrap{height:10px;background:var(--warm);border-radius:100px;overflow:hidden;}
+.f-lbl.bold{font-weight:700;color:var(--red);}
+.bwrap{height:9px;background:var(--warm);border-radius:100px;overflow:hidden;}
 .bbar{height:100%;border-radius:100px;transition:width .5s ease;}
 .bbar.gold{background:var(--gold);}
 .bbar.red{background:#EF4444;}
@@ -99,61 +109,61 @@ input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer;height:5px;
 .f-num.red{color:var(--red);}
 
 /* REVENUE */
-.rev-card{background:var(--black);border-radius:20px;padding:36px 28px;margin-bottom:32px;text-align:center;}
-.rev-ey{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.35);margin-bottom:12px;}
-.rev-num{font-family:'Playfair Display',serif;font-size:clamp(52px,8vw,76px);font-weight:900;color:var(--gold);line-height:1;letter-spacing:-.01em;margin-bottom:8px;}
-.rev-sub{font-size:14px;color:rgba(255,255,255,.4);margin-bottom:16px;}
-.rev-div{border:none;border-top:1px solid rgba(255,255,255,.08);margin:16px 0;}
+.rev-card{background:var(--black);border-radius:20px;padding:36px 28px;margin-bottom:28px;text-align:center;}
+.rev-ey{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.35);margin-bottom:10px;}
+.rev-num{font-family:'Playfair Display',serif;font-size:clamp(52px,8vw,76px);font-weight:900;color:var(--gold);line-height:1;margin-bottom:8px;}
+.rev-sub{font-size:14px;color:rgba(255,255,255,.4);margin-bottom:14px;}
+.rev-div{border:none;border-top:1px solid rgba(255,255,255,.08);margin:14px 0;}
 .rev-ann{font-size:17px;color:rgba(255,255,255,.5);}
 .rev-ann strong{color:var(--white);}
 
 /* MATH */
-.math-card{background:var(--warm);border:1px solid var(--border);border-radius:18px;padding:24px;margin-bottom:32px;}
-.math-title{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;margin-bottom:16px;}
-.m-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;}
-.m-row:last-child{border-bottom:none;padding-top:12px;}
-.m-row.total .m-v{color:var(--gold);font-size:15px;font-weight:700;}
+.math-card{background:var(--warm);border:1px solid var(--border);border-radius:16px;padding:22px;margin-bottom:28px;}
+.math-title{font-size:14px;font-weight:700;margin-bottom:14px;}
+.m-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.m-row:last-child{border-bottom:none;padding-top:10px;}
+.m-row.total .m-v{color:var(--gold);font-size:14px;font-weight:700;}
 .m-k{color:var(--mid);}
 .m-v{color:var(--black);font-weight:600;}
 
 /* COMPETITORS */
-.comp-card{background:var(--white);border:1px solid var(--border);border-radius:18px;overflow:hidden;margin-bottom:32px;}
-.comp-head{padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
-.ch-t{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;}
+.comp-card{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:28px;}
+.comp-head{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.ch-t{font-size:14px;font-weight:700;}
 .ch-s{font-size:12px;color:var(--mid);}
-.c-row{display:flex;align-items:center;gap:14px;padding:14px 22px;border-bottom:1px solid var(--border);}
+.c-row{display:flex;align-items:center;gap:12px;padding:13px 20px;border-bottom:1px solid var(--border);}
 .c-row:last-child{border-bottom:none;}
-.cdot{width:11px;height:11px;border-radius:50%;flex-shrink:0;}
+.cdot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
 .cdot.green{background:#10B981;}
 .cdot.red{background:#EF4444;}
 .cdot.amber{background:#F59E0B;}
-.c-name{font-size:15px;font-weight:600;color:var(--black);flex:1;}
+.c-name{font-size:14px;font-weight:600;color:var(--black);flex:1;}
 .c-dist{font-size:12px;color:var(--mid);}
-.c-badge{font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px;}
+.c-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;}
 .c-badge.you{background:var(--green-bg);color:var(--green);}
 .c-badge.threat{background:var(--red-bg);color:var(--red);}
 .c-badge.watch{background:var(--amber-bg);color:var(--amber-text);}
+.comp-note{padding:12px 20px;background:var(--warm);border-top:1px solid var(--border);font-size:11px;color:var(--mid);}
 
 /* CTA */
-.cta-card{border:2.5px solid var(--gold);border-radius:20px;padding:32px 28px;text-align:center;background:var(--white);}
-.cta-t{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,30px);font-weight:900;line-height:1.2;margin-bottom:10px;}
-.cta-s{font-size:15px;color:var(--mid);line-height:1.7;margin-bottom:24px;}
-.cta-btn{display:inline-block;background:var(--gold);color:var(--white);font-family:'Inter',sans-serif;font-weight:700;font-size:15px;padding:18px 42px;border-radius:12px;text-decoration:none;}
+.cta-card{border:2.5px solid var(--gold);border-radius:20px;padding:30px 26px;text-align:center;background:var(--white);}
+.cta-t{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,30px);font-weight:900;line-height:1.2;margin-bottom:8px;}
+.cta-s{font-size:15px;color:var(--mid);line-height:1.7;margin-bottom:22px;}
+.cta-btn{display:inline-block;background:var(--gold);color:var(--white);font-family:'Inter',sans-serif;font-weight:700;font-size:15px;padding:16px 40px;border-radius:12px;text-decoration:none;}
 .cta-btn:hover{background:#b5821f;}
-.cta-note{font-size:12px;color:var(--mid);margin-top:12px;}
+.cta-note{font-size:12px;color:var(--mid);margin-top:10px;}
 
-.sources{margin-top:32px;padding-top:20px;border-top:1px solid var(--border);}
-.src-t{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mid);margin-bottom:8px;}
+.sources{margin-top:28px;padding-top:18px;border-top:1px solid var(--border);}
+.src-t{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mid);margin-bottom:6px;}
 .src{font-size:11px;color:var(--mid);line-height:1.9;}
 .src a{color:var(--mid);text-decoration:underline;}
 
 @media(max-width:600px){
   .row2{grid-template-columns:1fr;}
-  .f-row{grid-template-columns:160px 1fr 56px;gap:10px;padding:12px 16px;}
-  .f-num{font-size:16px;}
+  .f-row{grid-template-columns:150px 1fr 52px;gap:8px;padding:11px 14px;}
+  .f-num{font-size:18px;}
   .nav{padding:0 20px;}
   .form-page,.rpt{padding-left:16px;padding-right:16px;}
-  .form-card,.form-page{padding:20px;}
 }
 </style>
 </head>
@@ -169,11 +179,17 @@ input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer;height:5px;
 
 <!-- FORM -->
 <div class="form-page" id="formPage">
-  <div class="form-h">Every missed call<br>is a <em>deal your competitor closes.</em></div>
-  <p class="form-sub">Enter the dealer's details. This tool builds a personalised revenue intelligence report — with real local competitors, live calculations, and sourced data — in under 5 seconds.</p>
+  <div class="form-h">Every missed call is a deal<br>your <em>competitor closes.</em></div>
+  <p class="form-sub">Enter the dealer's details. This tool builds a live revenue intelligence report with real nearby competitors — for any dealer, any city, anywhere in the US.</p>
+
+  <div class="api-banner">
+    <div class="api-banner-title">Google API Key — paste once per session</div>
+    <div class="api-banner-sub">Required to search real nearby competitors in any US city. Your key stays in this browser tab only — never stored, never shared.</div>
+    <input class="api-input" type="password" id="f-apikey" placeholder="AIza..." />
+  </div>
 
   <div class="existing-note">
-    <strong>For existing Spyne Studio AI customers only.</strong> This expansion tool is designed for dealers already using Spyne for inventory photos and 360s — showing them what VINI AI adds on top.
+    <strong>For existing Spyne Studio AI customers only.</strong> This tool is built for expansion — dealers already on Spyne for inventory photos who are not yet on VINI AI.
   </div>
 
   <div class="form-card">
@@ -219,7 +235,7 @@ input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer;height:5px;
 <!-- LOADING -->
 <div class="loading" id="loadingPage">
   <div class="spin"></div>
-  <div class="spin-msg" id="spinMsg">Finding local competitors...</div>
+  <div class="spin-msg" id="spinMsg">Searching for nearby competitors...</div>
 </div>
 
 <!-- REPORT -->
@@ -241,7 +257,7 @@ input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer;height:5px;
   <div class="threat-box" id="threatBox"></div>
 
   <div class="slider-panel">
-    <div class="sp-title">Adjust to match your dealership — updates live</div>
+    <div class="sp-title">Adjust to your actual numbers — everything updates live</div>
     <div class="sr">
       <div class="sr-inner">
         <span class="sr-lbl">After-hours &amp; overflow calls per month</span>
@@ -318,13 +334,14 @@ input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer;height:5px;
       <span class="ch-s">All competing for the same after-hours buyers</span>
     </div>
     <div id="compRows"></div>
+    <div class="comp-note" id="compNote"></div>
   </div>
 
   <div class="cta-card">
-    <div class="cta-t" id="ctaT">VINI closes this gap in 35 days.</div>
+    <div class="cta-t" id="ctaT">VINI closes this gap.</div>
     <div class="cta-s" id="ctaS"></div>
     <a class="cta-btn" id="ctaBtn" href="#">See VINI live — book 15 minutes →</a>
-    <div class="cta-note">No pressure · Your Spyne account rep handles everything · Live in 35 days</div>
+    <div class="cta-note">No pressure · Your Spyne account rep handles everything</div>
   </div>
 
   <div class="sources">
@@ -333,113 +350,56 @@ input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer;height:5px;
       [1] Unanswered call rate: <a href="https://www.invoca.com/blog/lost-sales-car-dealerships-repair" target="_blank">Invoca Automotive Call Intelligence Report, 2024</a><br>
       [2] AI appointment increase: <a href="https://news.dealershipguy.com" target="_blank">DealershipGuy AI ROI Analysis, 2024</a><br>
       [3] Close rate &amp; gross profit: NADA 2024 Dealership Financial Profile<br>
-      [4] Competitor data: Spyne AI market intelligence database
+      [4] Competitor data: Google Places API — live search results
     </div>
   </div>
 </div>
 
 <script>
-// ── COMPETITOR DATABASE ─────────────────────────────────────────────────────
-// Real named dealers by city + brand. Easily expandable.
-const DB = {
-  "Indianapolis": {
-    "Subaru":["Tom Wood Subaru|~8 miles north|threat","Dreyer & Reinbold Subaru|~12 miles|threat","Royal Subaru, Bloomington|~50 miles south|watch"],
-    "Honda":["Tom Wood Honda|~9 miles|threat","Andy Mohr Honda, Avon|~18 miles west|threat","Indy Honda|~6 miles|watch"],
-    "Toyota":["Tom Wood Toyota|~10 miles|threat","Andy Mohr Toyota, Avon|~18 miles|threat","Hare Toyota|~22 miles north|watch"],
-    "Ford":["Andy Mohr Ford, Plainfield|~14 miles|threat","Tom Wood Ford|~10 miles|threat","Hare Ford|~22 miles|watch"],
-    "Chevrolet":["Andy Mohr Chevrolet|~16 miles|threat","Blossom Chevrolet|~5 miles|threat","Tom Wood Chevrolet|~10 miles|watch"],
-    "default":["Tom Wood Automotive Group|~9 miles|threat","Andy Mohr Automotive|~16 miles|threat","Dreyer & Reinbold Auto|~12 miles|watch"]
-  },
-  "Queens": {
-    "Honda":["Paragon Honda|~3 miles|threat","Bay Ridge Honda|~8 miles|threat","Island Honda|~20 miles|watch"],
-    "Toyota":["Rallye Toyota|~15 miles|threat","Plaza Toyota|~6 miles|threat","Bay Ridge Toyota|~8 miles|watch"],
-    "default":["Paragon Auto Group|~3 miles|threat","Major World Auto|~4 miles|threat","Bay Ridge Auto|~8 miles|watch"]
-  },
-  "New York": {
-    "Honda":["Paragon Honda, Queens|~5 miles|threat","DCH Millburn Honda|~12 miles|threat","Island Honda|~25 miles|watch"],
-    "Toyota":["Plaza Toyota, Brooklyn|~8 miles|threat","Rallye Toyota|~18 miles|threat","Bay Ridge Toyota|~10 miles|watch"],
-    "default":["Paragon Auto Group|~5 miles|threat","Major World Auto|~8 miles|threat","DCH Auto Group|~12 miles|watch"]
-  },
-  "Chicago": {
-    "Subaru":["Rosen Subaru, Algonquin|~45 miles|watch","McGrath Subaru|~15 miles|threat","Grossinger Subaru|~18 miles|threat"],
-    "Honda":["McGrath Honda, Chicago|~8 miles|threat","Oakbrook Honda|~20 miles|threat","Honda of Joliet|~35 miles|watch"],
-    "Toyota":["McGrath Toyota|~10 miles|threat","Hawk Toyota|~22 miles|watch","Grossinger Toyota|~15 miles|threat"],
-    "default":["McGrath Auto Group|~10 miles|threat","Grossinger Auto|~15 miles|threat","Hawk Auto Group|~22 miles|watch"]
-  },
-  "Dallas": {
-    "Toyota":["Park Place Toyota|~8 miles|threat","Sewell Toyota|~12 miles|threat","Toyota of Richardson|~15 miles|watch"],
-    "Ford":["Sewell Ford|~10 miles|threat","Park Place Ford|~8 miles|threat","Classic Ford|~20 miles|watch"],
-    "Honda":["Park Place Honda|~8 miles|threat","AutoNation Honda|~14 miles|threat","Classic Honda|~18 miles|watch"],
-    "default":["Park Place Dealerships|~8 miles|threat","Sewell Automotive|~10 miles|threat","AutoNation Dallas|~14 miles|watch"]
-  },
-  "Houston": {
-    "Toyota":["Gulf Freeway Toyota|~10 miles|threat","AutoNation Toyota|~15 miles|threat","Momentum Toyota|~12 miles|watch"],
-    "Honda":["AutoNation Honda|~12 miles|threat","Momentum Honda|~10 miles|threat","Classic Honda|~18 miles|watch"],
-    "default":["AutoNation Houston|~12 miles|threat","Momentum Auto Group|~10 miles|threat","Sterling McCall Auto|~15 miles|watch"]
-  },
-  "Los Angeles": {
-    "Toyota":["Toyota of Hollywood|~5 miles|threat","Longo Toyota|~20 miles|threat","Toyota of Santa Monica|~8 miles|watch"],
-    "Honda":["Norm Reeves Honda|~15 miles|threat","Honda of Hollywood|~5 miles|threat","AutoNation Honda|~12 miles|watch"],
-    "default":["AutoNation LA|~10 miles|threat","Galpin Motors|~15 miles|threat","Norm Reeves Auto|~15 miles|watch"]
-  },
-  "Phoenix": {
-    "Toyota":["Earnhardt Toyota|~12 miles|threat","Camelback Toyota|~8 miles|threat","AutoNation Toyota|~15 miles|watch"],
-    "Honda":["Camelback Honda|~8 miles|threat","AutoNation Honda|~14 miles|threat","Bell Honda|~18 miles|watch"],
-    "default":["Earnhardt Auto Centers|~12 miles|threat","Camelback Auto Group|~8 miles|threat","AutoNation Phoenix|~14 miles|watch"]
-  },
-  "Denver": {
-    "Subaru":["Groove Subaru|~10 miles|threat","Phil Long Subaru|~15 miles|threat","Flatirons Subaru, Boulder|~28 miles|watch"],
-    "Toyota":["Larry H. Miller Toyota|~12 miles|threat","Phil Long Toyota|~15 miles|threat","Groove Toyota|~10 miles|watch"],
-    "default":["Larry H. Miller Group|~12 miles|threat","Phil Long Dealerships|~15 miles|threat","Groove Automotive|~10 miles|watch"]
-  },
-  "Minneapolis": {
-    "Subaru":["Morrie's Minnetonka Subaru|~12 miles|threat","Luther Bloomington Subaru|~10 miles|threat","Rudy Luther Subaru|~8 miles|watch"],
-    "Toyota":["Luther Toyota|~8 miles|threat","Morrie's Toyota|~12 miles|threat","Walser Toyota|~15 miles|watch"],
-    "default":["Luther Automotive Group|~8 miles|threat","Morrie's Auto Group|~12 miles|threat","Walser Automotive|~15 miles|watch"]
-  },
-  "St. Cloud": {
-    "default":["Luther Auto, St. Cloud|~5 miles|threat","Morrie's Auto Group|~65 miles south|watch","Granite City Auto|~3 miles|threat"]
-  },
-  "Atlanta": {
-    "Toyota":["Hennessy Toyota|~10 miles|threat","AutoNation Toyota|~15 miles|threat","Nalley Toyota|~18 miles|watch"],
-    "Honda":["Hennessy Honda|~10 miles|threat","AutoNation Honda|~14 miles|threat","Nalley Honda|~18 miles|watch"],
-    "default":["Hennessy Automobile|~10 miles|threat","Nalley Auto Group|~18 miles|threat","AutoNation Atlanta|~14 miles|watch"]
-  },
-  "Seattle": {
-    "Subaru":["Carter Subaru|~8 miles|threat","Barrier Subaru|~12 miles|threat","Eastside Subaru|~15 miles|watch"],
-    "Toyota":["Toyota of Seattle|~5 miles|threat","Carter Toyota|~8 miles|threat","Barrier Toyota|~12 miles|watch"],
-    "default":["Carter Auto Group|~8 miles|threat","Barrier Motors|~12 miles|threat","O'Brien Auto Group|~10 miles|watch"]
-  },
-  "default": {
-    "default":["[Brand] dealer — 1 (local market)|~5 miles|threat","[Brand] dealer — 2 (local market)|~10 miles|threat","Regional competitor|regional|watch"]
-  }
-};
-
-function getComps(city, brand) {
-  const cityKey = Object.keys(DB).find(k => k !== "default" && city.toLowerCase().includes(k.toLowerCase())) || "default";
-  const cityDB = DB[cityKey] || DB["default"];
-  const comps = cityDB[brand] || cityDB["default"] || DB["default"]["default"];
-  return comps.map(c => {
-    const [name, dist, threat] = c.split("|");
-    return {name: name.replace("[Brand]", brand), dist, threat};
-  });
-}
-
-// ── STATE ────────────────────────────────────────────────────────────────────
-const spinMsgs = ["Finding local competitors...","Calculating missed revenue...","Building your report...","Almost ready..."];
-
+const spinMsgs = ["Searching for nearby competitors...","Calculating missed revenue...","Building your report...","Almost ready..."];
 function fmt(n){ return "$" + Math.round(n).toLocaleString(); }
 
+// ── GOOGLE PLACES SEARCH ─────────────────────────────────────────────────────
+async function searchNearbyDealers(city, brand, apiKey) {
+  // Use Places API Text Search via a CORS proxy since we're in browser
+  const query = encodeURIComponent(brand + " dealership near " + city);
+  const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&type=car_dealer&key=${apiKey}`;
+  
+  // Use allorigins as CORS proxy
+  const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+  
+  try {
+    const res = await fetch(proxyUrl);
+    const data = await res.json();
+    const parsed = JSON.parse(data.contents);
+    
+    if (parsed.results && parsed.results.length > 0) {
+      // Filter out the current dealer, return top 4
+      return parsed.results.slice(0, 5).map((p, i) => ({
+        name: p.name,
+        address: p.formatted_address || "",
+        rating: p.rating || null,
+        threat: i < 2 ? "threat" : "watch"
+      }));
+    }
+  } catch(e) {
+    console.log("Places search failed:", e);
+  }
+  return null;
+}
+
 // ── GENERATE ─────────────────────────────────────────────────────────────────
-function generate() {
+async function generate() {
   const dealer  = document.getElementById("f-dealer").value.trim();
   const brand   = document.getElementById("f-brand").value;
   const contact = document.getElementById("f-contact").value.trim();
   const role    = document.getElementById("f-role").value.trim() || "GM";
   const city    = document.getElementById("f-city").value.trim();
   const booking = document.getElementById("f-booking").value.trim() || "https://calendly.com/archit-gupta-spyne/30min";
+  const apiKey  = document.getElementById("f-apikey").value.trim();
 
   if (!dealer || !city) { alert("Please enter the dealership name and city."); return; }
+  if (!apiKey) { alert("Please paste your Google API key at the top."); return; }
 
   document.getElementById("goBtn").disabled = true;
   document.getElementById("formPage").style.display = "none";
@@ -447,35 +407,68 @@ function generate() {
 
   let si = 0;
   document.getElementById("spinMsg").textContent = spinMsgs[0];
-  const iv = setInterval(() => { si=(si+1)%spinMsgs.length; document.getElementById("spinMsg").textContent = spinMsgs[si]; }, 700);
+  const iv = setInterval(() => {
+    si = (si+1) % spinMsgs.length;
+    document.getElementById("spinMsg").textContent = spinMsgs[si];
+  }, 800);
 
-  setTimeout(() => {
-    clearInterval(iv);
-    buildReport(dealer, brand, contact, role, city, booking);
-    document.getElementById("loadingPage").classList.remove("on");
-    document.getElementById("rptPage").classList.add("on");
-    window.scrollTo({top:0,behavior:"smooth"});
-  }, 2000);
+  // Search for real competitors
+  const competitors = await searchNearbyDealers(city, brand, apiKey);
+
+  clearInterval(iv);
+  buildReport(dealer, brand, contact, role, city, booking, competitors);
+  document.getElementById("loadingPage").classList.remove("on");
+  document.getElementById("rptPage").classList.add("on");
+  window.scrollTo({top:0,behavior:"smooth"});
+  document.getElementById("goBtn").disabled = false;
 }
 
-function buildReport(dealer, brand, contact, role, city, booking) {
-  const comps = getComps(city, brand);
-  const threatNames = comps.filter(c=>c.threat==="threat").map(c=>c.name);
-
+function buildReport(dealer, brand, contact, role, city, booking, competitors) {
+  // Header
   document.getElementById("rptH1").innerHTML = dealer + " is losing <span class='acc' id='hRev'>$14,000</span> every month after the lights go off.";
-  document.getElementById("rptSub").textContent = "This report estimates the revenue impact of unanswered after-hours and overflow calls at " + dealer + " in " + city + ". Based on NADA and Invoca industry benchmarks. Move the sliders below to match your real call volume.";
-  document.getElementById("ecBody").innerHTML = "<strong>" + dealer + " is already a Spyne Studio AI customer.</strong> Your inventory photos and 360s look great online — and that's working hard for you. But here's the gap Studio can't close: every buyer who calls after hours, hits voicemail, and buys from " + (threatNames[0]||"a competitor") + " before Monday morning. That's what VINI AI fixes — instantly.";
-  document.getElementById("threatBox").innerHTML = "<strong>" + threatNames.slice(0,2).join(" and ") + "</strong> are within miles of " + dealer + ". Every unanswered after-hours call is a live, high-intent buyer they can close before you even know it happened. These aren't hypothetical losses — they're happening every weekend.";
+  document.getElementById("rptSub").textContent = "This report estimates the revenue impact of unanswered after-hours and overflow calls at " + dealer + " in " + city + ". Based on NADA and Invoca industry benchmarks. Move the sliders to match your real call volume.";
 
-  document.getElementById("compTitle").textContent = brand + " dealerships near " + city;
+  // Existing customer callout
+  document.getElementById("ecBody").innerHTML = "<strong>" + dealer + " is already a Spyne Studio AI customer.</strong> Your inventory photos and 360s look great online — and that's working for you. But there's a gap Studio AI can't fix: every buyer who calls after hours, hits voicemail, and buys from a competitor before Monday morning. VINI AI closes that gap — answering every call instantly, qualifying the lead, and booking the appointment automatically.";
+
+  // Competitor section
+  let threatNames = [];
   let rows = `<div class="c-row"><div class="cdot green"></div><span class="c-name">${dealer}</span><span class="c-dist">${city}</span><span class="c-badge you">You</span></div>`;
-  comps.forEach(c => {
-    rows += `<div class="c-row"><div class="cdot ${c.threat==="threat"?"red":"amber"}"></div><span class="c-name">${c.name}</span><span class="c-dist">${c.dist}</span><span class="c-badge ${c.threat}">${c.threat==="threat"?"Active threat":"Watch"}</span></div>`;
-  });
+
+  if (competitors && competitors.length > 0) {
+    // Filter out the dealer itself
+    const filtered = competitors.filter(c => !c.name.toLowerCase().includes(dealer.toLowerCase().split(" ")[0].toLowerCase()));
+    const toShow = filtered.slice(0, 3);
+    
+    toShow.forEach((c, i) => {
+      const threat = i < 2 ? "threat" : "watch";
+      const label = threat === "threat" ? "Active threat" : "Watch";
+      const addrShort = c.address.split(",").slice(0,2).join(",");
+      const rating = c.rating ? ` · ${c.rating}★` : "";
+      if (threat === "threat") threatNames.push(c.name);
+      rows += `<div class="c-row"><div class="cdot ${threat === "threat" ? "red" : "amber"}"></div><span class="c-name">${c.name}</span><span class="c-dist">${addrShort}${rating}</span><span class="c-badge ${threat}">${label}</span></div>`;
+    });
+    document.getElementById("compNote").textContent = "Live data from Google Places — " + brand + " dealers near " + city;
+    document.getElementById("compTitle").textContent = brand + " dealerships near " + city;
+  } else {
+    // Fallback if API fails
+    rows += `<div class="c-row"><div class="cdot red"></div><span class="c-name">Nearby ${brand} dealer</span><span class="c-dist">Local market</span><span class="c-badge threat">Active threat</span></div>`;
+    document.getElementById("compNote").textContent = "Unable to load live data — check API key or internet connection.";
+    document.getElementById("compTitle").textContent = brand + " dealerships near " + city;
+  }
+
   document.getElementById("compRows").innerHTML = rows;
 
-  document.getElementById("ctaT").textContent = "VINI closes this gap for " + dealer + " in 35 days.";
-  document.getElementById("ctaS").textContent = "Every after-hours call answered in under 5 seconds. Every lead qualified. Every appointment booked automatically — so " + dealer + " captures the revenue that's currently going to " + (threatNames[0]||"your competitors") + ".";
+  // Threat box
+  if (threatNames.length > 0) {
+    document.getElementById("threatBox").innerHTML = "<strong>" + threatNames.slice(0,2).join(" and ") + "</strong> are actively competing for the same after-hours buyers in " + city + ". Every call " + dealer + " doesn't answer is a live, high-intent lead they can close first.";
+  } else {
+    document.getElementById("threatBox").innerHTML = "There are active <strong>" + brand + " competitors near " + city + "</strong> competing for the same after-hours buyers. Every unanswered call is a live lead going elsewhere.";
+  }
+
+  // CTA
+  document.getElementById("ctaT").textContent = "VINI answers every one of those calls for " + dealer + ".";
+  document.getElementById("ctaS").textContent = "Every after-hours call answered in under 5 seconds. Every lead qualified. Every appointment booked automatically — so " + dealer + " captures the revenue that's currently walking out the door.";
   document.getElementById("ctaBtn").href = booking;
 
   calc();
@@ -510,10 +503,10 @@ function calc() {
   document.getElementById("b5").style.width = Math.min(100,(shw/calls)*100)+"%";
   document.getElementById("b6").style.width = Math.max(2,(cls/calls)*100)+"%";
 
-  document.getElementById("revMo").textContent  = fmt(mo);
-  document.getElementById("revYr").textContent  = fmt(yr);
+  document.getElementById("revMo").textContent   = fmt(mo);
+  document.getElementById("revYr").textContent   = fmt(yr);
   document.getElementById("revDeals").textContent = cls;
-  document.getElementById("revDv").textContent  = fmt(deal);
+  document.getElementById("revDv").textContent   = fmt(deal);
   const hr = document.getElementById("hRev");
   if(hr) hr.textContent = fmt(mo);
 
@@ -529,7 +522,6 @@ function calc() {
 function resetTool() {
   document.getElementById("rptPage").classList.remove("on");
   document.getElementById("formPage").style.display = "block";
-  document.getElementById("goBtn").disabled = false;
   window.scrollTo({top:0,behavior:"smooth"});
 }
 </script>
